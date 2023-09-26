@@ -5,7 +5,10 @@ Character"*/
 import  java.util.Scanner;
 public class CharType_5 {
     public static void main(String[] args) {
+<<<<<<< HEAD
     	//
+=======
+>>>>>>> branch 'main' of git@github.com:NitVar/BasicJava.git
         ////
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a character: ");
