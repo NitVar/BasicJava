@@ -5,7 +5,7 @@ Character"*/
 import  java.util.Scanner;
 public class CharType_5 {
     public static void main(String[] args) {
-
+        ////
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a character: ");
         char ch = sc.nextLine().toCharArray()[0];
