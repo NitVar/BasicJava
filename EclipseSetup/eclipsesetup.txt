@@ -1,0 +1,36 @@
+#1 install git bash from https://gitforwindows.org/
+
+#2
+open git bash and create ssh key
+According to Github security blog RSA keys with SHA-1 are no longer accepted.
+
+Use the following command to create new SSH key with ECDSAencryption and add it to Github.
+
+ssh-keygen -t ecdsa -b 521 -C "your_email@example.com"
+
+save and keep paraphrase empty
+
+#3
+In Eclipse, Window -> Preferences -> General -> Network Connections -> SSH2--> General
+add .ssh user folder under your home folder like: C:\Users\dearm\.ssh
+add private key:
+id_ecdsa,id_ecdsa.pub
+
+Apply close, exit eclipse
+
+#4 Open id_ecdsa in notepad and copy key contents
+Go to GitHub account.Click on your profile -> Manage Account/setting -> SSH keys -> Add key.
+ Now Paste the previously copied key and then "Add key".
+ save it
+ 
+ #5
+ search for ssh.exe in your computer
+ copy path like: C:\Program Files\Git\usr\bin\ssh.exe
+ add system environment variable
+ GIT_SSH and value to the path of ssh.exe
+ 
+ #6
+ reopen eclipse
+ open git repositories view and clone URI
+ paste your ssh git URL and clone
+ 
