@@ -45,18 +45,16 @@ public class Day1 {
                     File f = new File(acc_num);
 
                     if (f.mkdir()) {
-                        System.out.println("Folder has been created successfully");
-                        String relativePath = acc_num+"/"+acc_num+".txt";
+                        String relativePath = acc_num+"/acc_"+acc_num+".txt";
                         File file = new File(relativePath);
                         if(file.createNewFile()){
-                            System.out.println(relativePath+" File Created in Project root directory");
                             BufferedWriter writer = new BufferedWriter(new FileWriter(relativePath));
                             writer.write("Email: " + email+"\n");
                             writer.write("Phone: " + phone+"\n");
                             writer.write("Location: "+ location+"\n");
 
                             writer.close();
-                        }else System.out.println("File "+relativePath+" already exists in the project root directory");
+                        }else System.out.println("Error in creating file");
                     }
                     else {
                         System.out.println("Folder cannot be created");
