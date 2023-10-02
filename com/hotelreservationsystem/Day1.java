@@ -31,16 +31,11 @@ public class Day1 {
         while (ch != 0) {
             switch (ch) {
                 case 1: {
-                    String email, phone, location;
-                    Scanner sc = new Scanner(System.in);
-                    System.out.println("Enter user email address: ");
-                    email = sc.nextLine();
-                    System.out.println("Enter phone number: ");
-                    phone = sc.nextLine();
-                    System.out.println("Enter location: ");
-                    location = sc.nextLine();
+                    Account account = new Account();
+                    account.getData();
 
-                    long acc = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
+
+                    long acc = (long) Math.floor(Math.random() * 9000_000_000L) + 1_000_000_000L;
                     String acc_num = acc + "";
                     File f = new File(acc_num);
 
@@ -48,12 +43,8 @@ public class Day1 {
                         String relativePath = acc_num+"/acc_"+acc_num+".txt";
                         File file = new File(relativePath);
                         if(file.createNewFile()){
-                            BufferedWriter writer = new BufferedWriter(new FileWriter(relativePath));
-                            writer.write("Email: " + email+"\n");
-                            writer.write("Phone: " + phone+"\n");
-                            writer.write("Location: "+ location+"\n");
+                            account.WriteToFile(relativePath);
 
-                            writer.close();
                         }else System.out.println("Error in creating file");
                     }
                     else {
