@@ -1,7 +1,8 @@
 package com.hotelrservation;
 
 
-import java.util.Scanner;
+
+import java.util.*;
 import java.io.*;
 public class Main {
     public static int displayMenu()
@@ -26,7 +27,11 @@ public class Main {
         return Integer.parseInt(choice);
 
     }
-
+    public static String generateAccountNumber()
+    {
+        //return ((long) Math.floor(Math.random() * 9000_000_000L) + 1_000_000_000L) + "";
+        return ((long) Math.floor(Math.random() * 10) + 100) + "";
+    }
     public static void main(String[] args) throws IOException{
         int ch = displayMenu();
         while (ch != 0) {
@@ -35,9 +40,8 @@ public class Main {
                     Account account = new Account();
                     account.getData();
 
+                    String acc_num = generateAccountNumber();
 
-                    long acc = (long) Math.floor(Math.random() * 9000_000_000L) + 1_000_000_000L;
-                    String acc_num = acc + "";
                     File f = new File(acc_num);
 
                     if (f.mkdir()) {
@@ -45,6 +49,8 @@ public class Main {
                         File file = new File(relativePath);
                         if(file.createNewFile()){
                             account.WriteToFile(relativePath);
+                            System.out.println("Your account number is: " + acc_num);
+
 
                         }else System.out.println("Error in creating file");
                     }
@@ -56,7 +62,8 @@ public class Main {
                 break;
 
                 case 2:
-                    System.out.println("Option 2");
+                   Reservation res = new Reservation();
+                   res.doReservation();
                     break;
                 case 3:
                     System.out.println("Option 3");
